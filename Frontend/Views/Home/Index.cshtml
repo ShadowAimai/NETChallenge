@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Choose one of the chatrooms below</p>
+</div>
+<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">User</div>
+        <div class="col-4" id="userInput">@User.Identity.Name</div>
+    </div>
+    <div class="row">
+        <div class="col-2">Message</div>
+        <div class="col-4"><input type="text" id="messageInput" /></div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#Bezos">Bezos</a></li>
+  <li><a data-toggle="tab" href="#Musk">Musk</a></li>
+  <li><a data-toggle="tab" href="#Arnault">Arnault</a></li>
+</ul>
+
+<div id="chats-tabs" class="tab-content">
+  <div id="Bezos" class="tab-pane fade in active">
+    <div class="row">
+        <div class="col-6">
+            <ul id="messagesListBezos" class="list-group">
+                @foreach (var item in Model.Bezos)
+                {
+                    <li class="list-group-item">(@item.date.ToString("dd/MM/yyyy hh:mm:ss tt")) @item.Username says @item.Message</li>
+                }
+            </ul>
+        </div>
+    </div>
+  </div>
+  <div id="Musk" class="tab-pane fade">
+    <div class="row">
+        <div class="col-6">
+            <ul id="messagesListMusk" class="list-group">
+                @foreach (var item in Model.Musk)
+                {
+                    <li class="list-group-item">(@item.date.ToString("dd/MM/yyyy hh:mm:ss tt")) @item.Username says @item.Message</li>
+                }
+            </ul>
+        </div>
+    </div>
+  </div>
+  <div id="Arnault" class="tab-pane fade">
+    <div class="row">
+        <div class="col-6">
+            <ul id="messagesListArnault" class="list-group">
+                @foreach (var item in Model.Arnault)
+                {
+                    <li class="list-group-item">(@item.date.ToString("dd/MM/yyyy hh:mm:ss tt")) @item.Username says @item.Message</li>
+                }
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script src="~/microsoft/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
