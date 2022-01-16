@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frontend", "Frontend\Fronte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockService", "StockService\StockService.csproj", "{455B1A63-89E9-4BD8-AA80-AF4AA723C296}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoupledBot", "DecoupledBot\DecoupledBot.csproj", "{71C49AEE-7DD4-4834-8B06-4070A22D897F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecoupledBot", "DecoupledBot\DecoupledBot.csproj", "{71C49AEE-7DD4-4834-8B06-4070A22D897F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontendUT", "FrontendUT\FrontendUT.csproj", "{84CC201B-B4FB-40EF-812A-4F3349E7C91F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockServiceUT", "StockServiceUT\StockServiceUT.csproj", "{14B51F30-64A6-4D2E-AAE1-A8332CA44C31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{71C49AEE-7DD4-4834-8B06-4070A22D897F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71C49AEE-7DD4-4834-8B06-4070A22D897F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71C49AEE-7DD4-4834-8B06-4070A22D897F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84CC201B-B4FB-40EF-812A-4F3349E7C91F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84CC201B-B4FB-40EF-812A-4F3349E7C91F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84CC201B-B4FB-40EF-812A-4F3349E7C91F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84CC201B-B4FB-40EF-812A-4F3349E7C91F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14B51F30-64A6-4D2E-AAE1-A8332CA44C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14B51F30-64A6-4D2E-AAE1-A8332CA44C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14B51F30-64A6-4D2E-AAE1-A8332CA44C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14B51F30-64A6-4D2E-AAE1-A8332CA44C31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

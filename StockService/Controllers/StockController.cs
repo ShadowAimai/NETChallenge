@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace StockService
 {
@@ -13,14 +14,13 @@ namespace StockService
     [Route("[controller]")]
     public class StockController : Controller
     {
+        private readonly IConfiguration _config;
 
         static readonly HttpClient client = new HttpClient();
 
-        private readonly ILogger<StockController> _logger;
-
-        public StockController(ILogger<StockController> logger)
+        public StockController(IConfiguration config)
         {
-            _logger = logger;
+            _config = config;
         }
 
 
@@ -30,7 +30,10 @@ namespace StockService
 
             try
             {
-                HttpResponseMessage response = await client.GetAsync(string.Format("https://stooq.com/q/l/?s={0}&f=sd2t2ohlcv&h&e=csv", stock_code));
+                string pre = _config.GetSection("CSVUri").GetSection("CSVUriPre").Value;
+                string post = _config.GetSection("CSVUri").GetSection("CSVUriPost").Value;
+
+                HttpResponseMessage response = await client.GetAsync(pre + stock_code + post);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
 

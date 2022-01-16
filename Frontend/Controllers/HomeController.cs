@@ -1,7 +1,8 @@
 ﻿using Frontend.Models;
-using Frontend.Utils;
+using Frontend.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -13,18 +14,18 @@ namespace Frontend.Controllers
     public class HomeController : Controller
     {
         private readonly AppIdentityDbContext _context;
-        private ChatHandler _chatHandler;
+        private ChatService _chatService;
 
-        public HomeController(AppIdentityDbContext context)
+        public HomeController(AppIdentityDbContext context, IConfiguration config)
         {
             _context = context;
-            _chatHandler = new ChatHandler(context);
+            _chatService = new ChatService(context, config);
         }
 
         [Authorize]
         public IActionResult Index()
         {
-            return View(_chatHandler.GetChats());
+            return View(_chatService.GetChats());
         }
 
 

@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Frontend.Models;
 using Frontend.Hubs;
+using Frontend.Services;
 
 namespace Frontend
 {
@@ -45,6 +46,8 @@ namespace Frontend
             });
 
             services.AddSignalR();
+
+            services.AddTransient<IChatService, ChatService>();
 
             services.AddControllersWithViews();
         }
